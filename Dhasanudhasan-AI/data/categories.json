@@ -1,0 +1,38 @@
+
+[
+  {
+    "id": "foundations",
+    "name": "Foundations",
+    "description": "Core ideas and terminology of Sri Vaishnavism."
+  },
+  {
+    "id": "acharyas",
+    "name": "Acharyas",
+    "description": "Teachers and the Sri Vaishnava Acharya tradition."
+  },
+  {
+    "id": "azhwars",
+    "name": "Azhwars",
+    "description": "The Azhwars and their devotional contributions."
+  },
+  {
+    "id": "texts",
+    "name": "Sacred Texts",
+    "description": "Traditional scriptures, commentaries and literature."
+  },
+  {
+    "id": "prabandham",
+    "name": "Divya Prabandham",
+    "description": "The Tamil devotional hymns of the Azhwars."
+  },
+  {
+    "id": "worship",
+    "name": "Worship and Practice",
+    "description": "Traditional practices and theological concepts."
+  },
+  {
+    "id": "places",
+    "name": "Divya Desams",
+    "description": "Sacred places celebrated in the Azhwars' hymns."
+  }
+]

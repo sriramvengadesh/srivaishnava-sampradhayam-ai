@@ -1,0 +1,24 @@
+
+[
+  {
+    "id": "koyil",
+    "name": "Koyil.org",
+    "url": "https://koyil.org/",
+    "priority": 1,
+    "description": "Primary portal for Sri Vaishnava resources and traditional texts."
+  },
+  {
+    "id": "acharya",
+    "name": "Acharya.org",
+    "url": "https://acharya.org/",
+    "priority": 2,
+    "description": "Acharya-related reference material."
+  },
+  {
+    "id": "sadagopan",
+    "name": "Sadagopan.org",
+    "url": "https://www.sadagopan.org/",
+    "priority": 3,
+    "description": "Sri Vaishnava literature and e-books."
+  }
+]

@@ -1,0 +1,471 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#164e9b">
+  <meta name="description" content="A source-based Sri Vaishnava Sampradhayam knowledge collection.">
+  <title>Sri Vaishnava Knowledge Base</title>
+
+  <style>
+    :root {
+      color-scheme: light;
+      --bg: #f3f7fc;
+      --surface: #ffffff;
+      --text: #172b4d;
+      --muted: #60718a;
+      --primary: #164e9b;
+      --primary-soft: #e5efff;
+      --border: #d9e4f2;
+      --warning: #8a5a00;
+    }
+
+    * { box-sizing: border-box; }
+
+    body {
+      margin: 0;
+      background: var(--bg);
+      color: var(--text);
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      line-height: 1.6;
+    }
+
+    header {
+      background: linear-gradient(135deg, #123b77, #2877c7);
+      color: white;
+      padding: 36px 20px;
+    }
+
+    .header-inner, main, footer {
+      max-width: 1050px;
+      margin: auto;
+    }
+
+    header h1 {
+      margin: 0 0 8px;
+      font-size: clamp(1.8rem, 5vw, 2.7rem);
+      line-height: 1.2;
+    }
+
+    header p {
+      max-width: 700px;
+      margin: 0;
+      color: #e5efff;
+    }
+
+    main { padding: 24px 16px 40px; }
+
+    .notice {
+      background: var(--primary-soft);
+      border: 1px solid var(--border);
+      padding: 14px 16px;
+      border-radius: 12px;
+      margin-bottom: 22px;
+    }
+
+    .controls {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr);
+      gap: 12px;
+      margin-bottom: 20px;
+    }
+
+    input, select {
+      width: 100%;
+      padding: 13px 14px;
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      background: var(--surface);
+      color: var(--text);
+      font: inherit;
+    }
+
+    input:focus, select:focus, a:focus {
+      outline: 3px solid #8bbcff;
+      outline-offset: 2px;
+    }
+
+    .section-heading {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      align-items: baseline;
+      gap: 8px;
+      margin: 24px 0 12px;
+    }
+
+    .section-heading h2 { margin: 0; font-size: 1.25rem; }
+
+    .muted { color: var(--muted); }
+
+    #results {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(min(100%, 280px), 1fr));
+      gap: 16px;
+    }
+
+    .entry {
+      min-width: 0;
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 14px;
+      padding: 18px;
+      box-shadow: 0 3px 12px rgb(30 64 110 / 5%);
+    }
+
+    .entry h3 { margin: 8px 0; line-height: 1.35; }
+
+    .entry p { margin: 8px 0 14px; overflow-wrap: anywhere; }
+
+    .pill {
+      display: inline-block;
+      padding: 3px 9px;
+      border-radius: 999px;
+      background: var(--primary-soft);
+      color: var(--primary);
+      font-size: .8rem;
+      font-weight: 650;
+    }
+
+    .review {
+      display: inline-block;
+      font-size: .8rem;
+      color: var(--warning);
+      background: #fff4d6;
+      padding: 3px 8px;
+      border-radius: 999px;
+    }
+
+    a { color: var(--primary); overflow-wrap: anywhere; }
+
+    .sources {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(min(100%, 240px), 1fr));
+      gap: 12px;
+    }
+
+    .source {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 16px;
+    }
+
+    .source h3 { margin: 0 0 6px; font-size: 1rem; }
+    .source p { margin: 0 0 8px; color: var(--muted); }
+
+    .empty {
+      background: var(--surface);
+      border: 1px dashed var(--border);
+      padding: 24px;
+      border-radius: 12px;
+      grid-column: 1 / -1;
+    }
+
+    footer {
+      padding: 20px 16px 32px;
+      color: var(--muted);
+      font-size: .9rem;
+    }
+
+    [hidden] { display: none !important; }
+
+    @media (min-width: 650px) {
+      .controls { grid-template-columns: 2fr 1fr; }
+    }
+  </style>
+</head>
+
+<body>
+  <header>
+    <div class="header-inner">
+      <h1>Sri Vaishnava Knowledge Base</h1>
+      <p>A growing collection of Sri Vaishnava teachings, Acharyas, Azhwars, sacred texts and Divya Desams, with references to original sources.</p>
+    </div>
+  </header>
+
+  <main>
+    <div class="notice">
+      <strong>About this project</strong>
+      <p style="margin:6px 0 0">
+        This is a source-based knowledge collection, not yet a generative-AI assistant.
+        Entries marked “Needs review” must be checked against specific primary references.
+      </p>
+    </div>
+
+    <section aria-labelledby="search-heading">
+      <div class="section-heading">
+        <h2 id="search-heading">Explore the knowledge base</h2>
+        <span id="count" class="muted" aria-live="polite">Loading…</span>
+      </div>
+
+      <div class="controls">
+        <input id="search" type="search"
+          placeholder="Search topics, keywords or summaries…"
+          aria-label="Search knowledge">
+        <select id="category" aria-label="Filter by category">
+          <option value="all">All categories</option>
+        </select>
+      </div>
+
+      <p id="status" class="muted" role="status">Loading knowledge files…</p>
+      <div id="results"></div>
+    </section>
+
+    <section aria-labelledby="sources-heading">
+      <div class="section-heading">
+        <h2 id="sources-heading">Primary source directory</h2>
+      </div>
+      <p class="muted">
+        These links help readers visit the original websites. A source is not
+        evidence for an individual claim until the exact supporting page or book is recorded.
+      </p>
+      <div id="sources" class="sources">
+        <p class="muted">Loading source directory…</p>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <p>
+      Respect the original authors and publishers. Prefer concise summaries,
+      exact citations and links to original works rather than reproducing entire
+      copyrighted articles or books.
+    </p>
+  </footer>
+
+  <script>
+    "use strict";
+
+    const searchInput = document.getElementById("search");
+    const categorySelect = document.getElementById("category");
+    const resultsElement = document.getElementById("results");
+    const sourcesElement = document.getElementById("sources");
+    const statusElement = document.getElementById("status");
+    const countElement = document.getElementById("count");
+
+    let entries = [];
+    let categories = [];
+    let sources = [];
+
+    function makeElement(tag, className, text) {
+      const element = document.createElement(tag);
+      if (className) element.className = className;
+      if (text !== undefined) element.textContent = text;
+      return element;
+    }
+
+    function safeHttpUrl(value) {
+      try {
+        const url = new URL(value);
+        if (url.protocol === "https:" || url.protocol === "http:") {
+          return url.href;
+        }
+      } catch (_) {}
+      return null;
+    }
+
+    function makeLink(url, label) {
+      const safeUrl = safeHttpUrl(url);
+      if (!safeUrl) return makeElement("span", "muted", label);
+
+      const link = makeElement("a", "", label);
+      link.href = safeUrl;
+      link.target = "_blank";
+      link.rel = "noopener noreferrer";
+      return link;
+    }
+
+    function categoryName(id) {
+      const item = categories.find(category => category.id === id);
+      return item ? item.name : id || "Uncategorised";
+    }
+
+    function sourceById(id) {
+      return sources.find(source => source.id === id);
+    }
+
+    function renderSources() {
+      sourcesElement.replaceChildren();
+
+      if (!sources.length) {
+        sourcesElement.append(
+          makeElement("p", "empty", "No source records were loaded.")
+        );
+        return;
+      }
+
+      for (const source of [...sources].sort(
+        (a, b) => (a.priority || 99) - (b.priority || 99)
+      )) {
+        const card = makeElement("article", "source");
+        card.append(makeElement("h3", "", source.name || source.id));
+        card.append(makeElement("p", "", source.description || ""));
+        card.append(makeLink(source.url, "Visit original website"));
+        sourcesElement.append(card);
+      }
+    }
+
+    function renderCategories() {
+      categorySelect.replaceChildren();
+
+      const allOption = makeElement("option", "", "All categories");
+      allOption.value = "all";
+      categorySelect.append(allOption);
+
+      for (const category of categories) {
+        const option = makeElement("option", "", category.name);
+        option.value = category.id;
+        categorySelect.append(option);
+      }
+    }
+
+    function renderEntry(entry) {
+      const card = makeElement("article", "entry");
+      card.append(makeElement("span", "pill", categoryName(entry.category)));
+      card.append(makeElement("h3", "", entry.title || "Untitled entry"));
+      card.append(makeElement("p", "", entry.summary || "No summary yet."));
+
+      const review = entry.review_status || "needs_review";
+      card.append(makeElement(
+        "span",
+        "review",
+        review === "reviewed" ? "Reviewed" : "Needs review"
+      ));
+
+      const refs = Array.isArray(entry.references) ? entry.references : [];
+      const validRefs = refs.filter(ref => ref && ref.url);
+
+      if (validRefs.length) {
+        card.append(makeElement("h4", "", "References"));
+        const list = makeElement("ul", "");
+        for (const ref of validRefs) {
+          const li = makeElement("li", "");
+          li.append(makeLink(ref.url, ref.title || ref.url));
+          if (ref.accessed) {
+            li.append(document.createTextNode(" (accessed " + ref.accessed + ")"));
+          }
+          list.append(li);
+        }
+        card.append(list);
+      } else {
+        const note = makeElement(
+          "p",
+          "muted",
+          "An exact article or book reference still needs to be added."
+        );
+        card.append(note);
+      }
+
+      const linkedSources = (entry.sourceIds || [])
+        .map(sourceById)
+        .filter(Boolean);
+
+      if (linkedSources.length) {
+        const sourceLine = makeElement("p", "muted");
+        sourceLine.append(document.createTextNode("Source directory: "));
+        linkedSources.forEach((source, index) => {
+          if (index > 0) sourceLine.append(document.createTextNode(" · "));
+          sourceLine.append(makeLink(source.url, source.name));
+        });
+        card.append(sourceLine);
+      }
+
+      return card;
+    }
+
+    function renderEntries() {
+      const query = searchInput.value.trim().toLocaleLowerCase();
+      const selectedCategory = categorySelect.value;
+
+      const filtered = entries.filter(entry => {
+        if (selectedCategory !== "all" &&
+            entry.category !== selectedCategory) {
+          return false;
+        }
+
+        const searchable = [
+          entry.title,
+          entry.summary,
+          ...(entry.keywords || []),
+          categoryName(entry.category)
+        ].join(" ").toLocaleLowerCase();
+
+        return searchable.includes(query);
+      });
+
+      resultsElement.replaceChildren();
+      countElement.textContent =
+        filtered.length + (filtered.length === 1 ? " entry" : " entries");
+
+      if (!filtered.length) {
+        resultsElement.append(makeElement(
+          "p",
+          "empty",
+          entries.length
+            ? "No matching entries. Try another word or category."
+            : "No knowledge entries are available yet."
+        ));
+        return;
+      }
+
+      for (const entry of filtered) {
+        resultsElement.append(renderEntry(entry));
+      }
+    }
+
+    async function loadJson(path) {
+      const response = await fetch(path, { cache: "no-cache" });
+      if (!response.ok) {
+        throw new Error(path + " returned HTTP " + response.status);
+      }
+      return response.json();
+    }
+
+    async function start() {
+      try {
+        const loaded = await Promise.all([
+          loadJson("./data/categories.json"),
+          loadJson("./data/entries.json"),
+          loadJson("./data/sources.json")
+        ]);
+
+        categories = loaded[0];
+        entries = loaded[1];
+        sources = loaded[2];
+
+        if (!Array.isArray(categories) ||
+            !Array.isArray(entries) ||
+            !Array.isArray(sources)) {
+          throw new Error("A data file must contain a JSON array.");
+        }
+
+        renderCategories();
+        renderSources();
+        renderEntries();
+        statusElement.textContent =
+          "Knowledge loaded. Search the collection or choose a category.";
+      } catch (error) {
+        console.error("Knowledge base loading error:", error);
+        statusElement.textContent =
+          "Could not load knowledge files. Check that categories.json, entries.json and sources.json exist in the data folder, use valid JSON, and are published on GitHub Pages.";
+        countElement.textContent = "Loading failed";
+        resultsElement.replaceChildren(
+          makeElement("p", "empty",
+            "The site could not load its data. Open the repository's data folder and check the filenames and contents.")
+        );
+        sourcesElement.replaceChildren(
+          makeElement("p", "empty",
+            "The source directory could not be loaded.")
+        );
+      }
+    }
+
+    searchInput.addEventListener("input", renderEntries);
+    categorySelect.addEventListener("change", renderEntries);
+
+    start();
+  </script>
+</body>
+</html>

@@ -1,0 +1,103 @@
+
+[
+  {
+    "id": "sri-vaishnavism",
+    "title": "Sri Vaishnavism",
+    "category": "foundations",
+    "summary": "Sri Vaishnavism is a Vaishnava tradition centred on Sriman Narayana and associated with the teachings of its Acharyas, devotional practice, and the Tamil hymns of the Azhwars.",
+    "keywords": ["Sri Vaishnavism", "Narayana", "Vaishnava", "sampradhayam", "tradition"],
+    "sourceIds": ["koyil", "acharya", "sadagopan"],
+    "references": [],
+    "review_status": "needs_review"
+  },
+  {
+    "id": "ramanujacharya",
+    "title": "Sri Ramanujacharya",
+    "category": "acharyas",
+    "summary": "Sri Ramanujacharya is a central Acharya in the Sri Vaishnava tradition, associated with Vishishtadvaita Vedanta and the interpretation of Vedanta through the tradition's philosophical teachings.",
+    "keywords": ["Ramanuja", "Ramanujacharya", "Acharya", "Vedanta", "Vishishtadvaita"],
+    "sourceIds": ["koyil", "acharya", "sadagopan"],
+    "references": [],
+    "review_status": "needs_review"
+  },
+  {
+    "id": "vishishtadvaita",
+    "title": "Vishishtadvaita Vedanta",
+    "category": "foundations",
+    "summary": "Vishishtadvaita is a Vedanta philosophical tradition associated with Sri Ramanujacharya. Its teachings explain the relationship between Brahman, individual selves and the universe.",
+    "keywords": ["Vishishtadvaita", "philosophy", "Vedanta", "Ramanuja", "Brahman"],
+    "sourceIds": ["koyil", "sadagopan"],
+    "references": [],
+    "review_status": "needs_review"
+  },
+  {
+    "id": "azhwars",
+    "title": "The Azhwars",
+    "category": "azhwars",
+    "summary": "The Azhwars are revered poet-saints whose Tamil devotional hymns form a foundational part of Sri Vaishnava devotional heritage.",
+    "keywords": ["Azhwars", "Alwars", "Tamil", "devotion", "hymns"],
+    "sourceIds": ["koyil", "acharya", "sadagopan"],
+    "references": [],
+    "review_status": "needs_review"
+  },
+  {
+    "id": "naalayira-divya-prabandham",
+    "title": "Naalayira Divya Prabandham",
+    "category": "prabandham",
+    "summary": "The Naalayira Divya Prabandham is a collection traditionally described as containing 4,000 Tamil devotional verses associated with the Azhwars.",
+    "keywords": ["Naalayira Divya Prabandham", "Divya Prabandham", "4000", "Azhwars", "Tamil"],
+    "sourceIds": ["koyil", "sadagopan"],
+    "references": [],
+    "review_status": "needs_review"
+  },
+  {
+    "id": "nammalwar",
+    "title": "Nammalwar",
+    "category": "azhwars",
+    "summary": "Nammalwar is one of the most revered Azhwars. His works, including the Tiruvaymozhi, hold a central place in Sri Vaishnava devotional tradition.",
+    "keywords": ["Nammalwar", "Nammāḻvār", "Tiruvaymozhi", "Azhwar"],
+    "sourceIds": ["koyil", "acharya", "sadagopan"],
+    "references": [],
+    "review_status": "needs_review"
+  },
+  {
+    "id": "andal",
+    "title": "Andal",
+    "category": "azhwars",
+    "summary": "Andal is revered as a woman Azhwar in Sri Vaishnava tradition. Her celebrated works include Tiruppavai and Nachiyar Tirumozhi.",
+    "keywords": ["Andal", "Tiruppavai", "Nachiyar Tirumozhi", "Azhwar"],
+    "sourceIds": ["koyil", "acharya", "sadagopan"],
+    "references": [],
+    "review_status": "needs_review"
+  },
+  {
+    "id": "divya-desams",
+    "title": "Divya Desams",
+    "category": "places",
+    "summary": "Divya Desams are sacred Vishnu temples praised in the devotional hymns of the Azhwars and revered in Sri Vaishnava tradition.",
+    "keywords": ["Divya Desam", "Divya Desams", "temples", "Vishnu", "Azhwars"],
+    "sourceIds": ["koyil", "sadagopan"],
+    "references": [],
+    "review_status": "needs_review"
+  },
+  {
+    "id": "saranagati",
+    "title": "Saranagati",
+    "category": "worship",
+    "summary": "Saranagati, also called prapatti, refers to surrender to the Lord. Its meaning and role should be studied through the specific teachings and explanations of the Sri Vaishnava Acharyas.",
+    "keywords": ["Saranagati", "prapatti", "surrender", "Acharya"],
+    "sourceIds": ["koyil", "acharya", "sadagopan"],
+    "references": [],
+    "review_status": "needs_review"
+  },
+  {
+    "id": "sriman-narayana",
+    "title": "Sriman Narayana",
+    "category": "foundations",
+    "summary": "Sriman Narayana is central to Sri Vaishnava worship and theology. Use the tradition's primary texts and Acharya commentaries when documenting specific theological claims.",
+    "keywords": ["Sriman Narayana", "Narayana", "Vishnu", "worship", "theology"],
+    "sourceIds": ["koyil", "acharya", "sadagopan"],
+    "references": [],
+    "review_status": "needs_review"
+  }
+]
