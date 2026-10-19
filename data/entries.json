@@ -1,0 +1,180 @@
+
+[
+  {
+    "id": "acharya-ramanuja",
+    "title": "Sri Ramanujacharya",
+    "category": "acharyas",
+    "summary": "A major acharya associated with Vishishtadvaita Vedanta and the Sri Vaishnava tradition.",
+    "content": "Sri Ramanujacharya is a central acharya in the Sri Vaishnava tradition. He is closely associated with the systematic exposition of Vishishtadvaita Vedanta. His life, works, teachings, and traditional accounts should be studied through reliable biographies and Sri Vaishnava sources.",
+    "aliases": ["Ramanuja", "Ramanujacharya", "Sri Bhashya", "Yatiraja"],
+    "related": ["vishishtadvaita", "sri-vaishnavism", "saranagati"],
+    "sources": [
+      {
+        "title": "Internet Encyclopedia of Philosophy: Ramanuja",
+        "url": "https://iep.utm.edu/ramanuja/"
+      }
+    ],
+    "review_status": "needs_review",
+    "review_note": "Check historical details, traditional accounts, and interpretations with reliable sources and a knowledgeable Sri Vaishnava teacher."
+  },
+  {
+    "id": "vishishtadvaita",
+    "title": "Vishishtadvaita Vedanta",
+    "category": "philosophy",
+    "summary": "A Vedanta philosophical tradition particularly associated with Sri Ramanujacharya.",
+    "content": "Vishishtadvaita is commonly translated as qualified non-dualism. It is associated with Sri Ramanujacharya and forms an important philosophical foundation of Sri Vaishnavism. Its precise explanations of Brahman, the individual self, and the world should be studied through dedicated philosophical texts and traditional commentaries.",
+    "aliases": ["Vishishtadvaita", "qualified non-dualism", "Vedanta", "Sri Bhashya"],
+    "related": ["acharya-ramanuja", "sri-vaishnavism"],
+    "sources": [
+      {
+        "title": "Internet Encyclopedia of Philosophy: Ramanuja",
+        "url": "https://iep.utm.edu/ramanuja/"
+      }
+    ],
+    "review_status": "needs_review",
+    "review_note": "Add primary-text references and review philosophical explanations with a qualified teacher."
+  },
+  {
+    "id": "sri-vaishnavism",
+    "title": "Sri Vaishnavism",
+    "category": "tradition",
+    "summary": "A Vaishnava tradition centered on devotion to Sriman Narayana and a rich lineage of Azhwars and Acharyas.",
+    "content": "Sri Vaishnavism is a Vaishnava tradition with a rich body of Sanskrit and Tamil devotional literature, philosophical works, temple practices, and teacher-disciple lineages. Sriman Narayana, Sri or Lakshmi, the Azhwars, and the Acharyas have important places in its teachings. Detailed theological explanations should be presented with appropriate traditional sources.",
+    "aliases": ["Sri Vaishnava Sampradayam", "Srivaishnavism", "Sampradayam", "Vaishnavism"],
+    "related": ["acharya-ramanuja", "alvars", "divya-prabandham", "sriman-narayana"],
+    "sources": [
+      {
+        "title": "Encyclopaedia Britannica: Vaishnavism",
+        "url": "https://www.britannica.com/topic/Vaishnavism"
+      },
+      {
+        "title": "Tirumala Tirupati Devasthanams: Alwar Divya Prabandha Project",
+        "url": "https://www.tirumala.org/RAAlwarDivyaPrabandhaProject.aspx"
+      }
+    ],
+    "review_status": "needs_review",
+    "review_note": "Add traditional source citations and distinguish traditional accounts from modern academic descriptions."
+  },
+  {
+    "id": "alvars",
+    "title": "The Azhwars",
+    "category": "azhwars",
+    "summary": "Twelve revered Tamil poet-saints associated with devotional hymns to Vishnu.",
+    "content": "The Azhwars are twelve revered poet-saints of the Tamil Vaishnava tradition. Their devotional hymns are an important part of the tradition's literary and spiritual heritage. The traditional accounts of each Azhwar, their works, and their chronology should be documented individually with suitable sources.",
+    "aliases": ["Alvars", "Azhwar", "Alwar", "Azhwars", "Alwars"],
+    "related": ["divya-prabandham", "nammalvar", "andal", "divya-desams"],
+    "sources": [
+      {
+        "title": "Tirumala Tirupati Devasthanams: Alwar Divya Prabandha Project",
+        "url": "https://www.tirumala.org/RAAlwarDivyaPrabandhaProject.aspx"
+      },
+      {
+        "title": "Hymns of the Alvars",
+        "url": "https://ebooks.tirumala.org/downloads/hymns_of_the_alvars.pdf"
+      }
+    ],
+    "review_status": "needs_review",
+    "review_note": "Verify names, works, traditional life accounts, and transliterations."
+  },
+  {
+    "id": "divya-prabandham",
+    "title": "Naalayira Divya Prabandham",
+    "category": "azhwars",
+    "summary": "A collection of Tamil devotional hymns associated with the Azhwars.",
+    "content": "The Naalayira Divya Prabandham is a foundational collection of Tamil devotional hymns revered in Sri Vaishnavism. Its name is traditionally associated with four thousand hymns or verses. The collection's individual works, authorship, arrangement, and recitation traditions deserve separate, carefully sourced entries.",
+    "aliases": ["Divya Prabandham", "Nalayira Divya Prabandham", "Naalayira", "Tamil Veda"],
+    "related": ["alvars", "nammalvar", "andal"],
+    "sources": [
+      {
+        "title": "Tirumala Tirupati Devasthanams: Alwar Divya Prabandha Project",
+        "url": "https://www.tirumala.org/RAAlwarDivyaPrabandhaProject.aspx"
+      },
+      {
+        "title": "Hymns of the Alvars",
+        "url": "https://ebooks.tirumala.org/downloads/hymns_of_the_alvars.pdf"
+      }
+    ],
+    "review_status": "needs_review",
+    "review_note": "Verify the collection's structure, verse counts, and traditional explanations against authoritative editions."
+  },
+  {
+    "id": "nammalvar",
+    "title": "Nammalvar",
+    "category": "azhwars",
+    "summary": "One of the twelve Azhwars, especially associated with Tiruvaymoli.",
+    "content": "Nammalvar is one of the twelve Azhwars and is especially associated with Tiruvaymoli, a major work in the Naalayira Divya Prabandham. Additional entries can cover his other works, traditional life accounts, and the commentarial tradition surrounding his hymns.",
+    "aliases": ["Nammalwar", "Nammazhwar", "Nammalvar", "Tiruvaymoli"],
+    "related": ["alvars", "divya-prabandham"],
+    "sources": [
+      {
+        "title": "Tirumala Tirupati Devasthanams: Alwar Divya Prabandha Project",
+        "url": "https://www.tirumala.org/RAAlwarDivyaPrabandhaProject.aspx"
+      }
+    ],
+    "review_status": "needs_review",
+    "review_note": "Add dedicated sources for Tiruvaymoli, other works, and traditional biographies."
+  },
+  {
+    "id": "andal",
+    "title": "Andal",
+    "category": "azhwars",
+    "summary": "A revered woman poet-saint counted among the twelve Azhwars.",
+    "content": "Andal is revered in Sri Vaishnavism as one of the twelve Azhwars. Tiruppavai and Nachiyar Tirumozhi are associated with her. Her hymns, devotional significance, and traditional life account should be studied alongside reliable editions and traditional commentaries.",
+    "aliases": ["Andal", "Goda Devi", "Kodhai", "Tiruppavai", "Nachiyar Tirumozhi"],
+    "related": ["alvars", "divya-prabandham"],
+    "sources": [
+      {
+        "title": "Tirumala Tirupati Devasthanams: Alwar Divya Prabandha Project",
+        "url": "https://www.tirumala.org/RAAlwarDivyaPrabandhaProject.aspx"
+      }
+    ],
+    "review_status": "needs_review",
+    "review_note": "Add dedicated sources for both works and verify traditional details with a knowledgeable teacher."
+  },
+  {
+    "id": "divya-desams",
+    "title": "Divya Desams",
+    "category": "temples",
+    "summary": "Sacred Vishnu temples praised in the hymns of the Azhwars.",
+    "content": "Divya Desams are sacred places associated with Vishnu and praised in the Azhwars' devotional hymns. The traditional count is 108. A useful expansion of this entry would list each Divya Desam with its traditional name, present-day location, associated hymns, and reliable references.",
+    "aliases": ["Divya Desam", "108 Divya Desams", "Divya Kshetrams"],
+    "related": ["alvars", "divya-prabandham"],
+    "sources": [
+      {
+        "title": "Hymns of the Alvars",
+        "url": "https://ebooks.tirumala.org/downloads/hymns_of_the_alvars.pdf"
+      }
+    ],
+    "review_status": "needs_review",
+    "review_note": "Build a separate temple-by-temple dataset and verify names, locations, and traditional counts."
+  },
+  {
+    "id": "saranagati",
+    "title": "Saranagati",
+    "category": "teachings",
+    "summary": "A term commonly used for taking refuge or surrendering to the Lord.",
+    "content": "Saranagati is commonly used to describe taking refuge or surrendering to the Lord. Its place in Sri Vaishnava teaching requires careful explanation using the tradition's own texts and commentaries. This short entry is only a starting point and should not be used as a complete doctrinal explanation.",
+    "aliases": ["Sharanagati", "Prapatti", "Saranagathi", "refuge", "surrender"],
+    "related": ["acharya-ramanuja", "sri-vaishnavism", "sriman-narayana"],
+    "sources": [],
+    "review_status": "needs_review",
+    "review_note": "Do not publish as a definitive doctrinal explanation until traditional primary sources and teacher review are added."
+  },
+  {
+    "id": "sriman-narayana",
+    "title": "Sriman Narayana",
+    "category": "terminology",
+    "summary": "A revered name for the Lord in Sri Vaishnava usage.",
+    "content": "Sriman Narayana is a reverential name central to Sri Vaishnava devotional and theological language. The significance of the name and the relationship expressed by 'Sri' should be explained with references to appropriate traditional texts and commentaries.",
+    "aliases": ["Sriman Narayana", "Narayana", "Sriman Narayanan", "Sri"],
+    "related": ["sri-vaishnavism", "saranagati"],
+    "sources": [
+      {
+        "title": "Encyclopaedia Britannica: Vaishnavism",
+        "url": "https://www.britannica.com/topic/Vaishnavism"
+      }
+    ],
+    "review_status": "needs_review",
+    "review_note": "Add dedicated traditional textual references; an introductory general reference is not sufficient for detailed theology."
+  }
+]

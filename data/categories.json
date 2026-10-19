@@ -1,0 +1,38 @@
+
+[
+  {
+    "id": "acharyas",
+    "name": "Acharyas",
+    "description": "Teachers and spiritual preceptors in the Sri Vaishnava tradition."
+  },
+  {
+    "id": "azhwars",
+    "name": "Azhwars & Divya Prabandham",
+    "description": "The Azhwars and their Tamil devotional hymns."
+  },
+  {
+    "id": "philosophy",
+    "name": "Philosophy",
+    "description": "Philosophical ideas and Vedanta."
+  },
+  {
+    "id": "tradition",
+    "name": "Tradition",
+    "description": "The tradition, its practices, and its development."
+  },
+  {
+    "id": "temples",
+    "name": "Temples & Sacred Places",
+    "description": "Divya Desams and sacred places associated with the tradition."
+  },
+  {
+    "id": "teachings",
+    "name": "Teachings & Concepts",
+    "description": "Spiritual concepts and traditional teachings."
+  },
+  {
+    "id": "terminology",
+    "name": "Names & Terminology",
+    "description": "Names and terms used in Sri Vaishnava literature."
+  }
+]

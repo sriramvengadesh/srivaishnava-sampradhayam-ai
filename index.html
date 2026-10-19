@@ -1,0 +1,418 @@
+
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#1769aa">
+  <title>Sri Vaishnava Knowledge Base</title>
+  <meta name="description" content="An organized, source-aware learning collection about Sri Vaishnava tradition.">
+  <style>
+    :root {
+      color-scheme: light;
+      --bg: #f3f8ff;
+      --panel: #ffffff;
+      --text: #18324d;
+      --muted: #637991;
+      --blue: #1769aa;
+      --blue-light: #e5f2ff;
+      --border: #d8e6f5;
+      --warning: #fff4d8;
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      background: var(--bg);
+      color: var(--text);
+      font: 16px/1.65 system-ui, -apple-system, sans-serif;
+    }
+    body.dark {
+      color-scheme: dark;
+      --bg: #101a28;
+      --panel: #19283b;
+      --text: #e7f1ff;
+      --muted: #afc0d5;
+      --blue: #83c3ff;
+      --blue-light: #213b55;
+      --border: #344b63;
+      --warning: #43391f;
+    }
+    a { color: var(--blue); }
+    button, input, select, textarea { font: inherit; }
+    button, select, input, textarea {
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      padding: 10px 12px;
+    }
+    button {
+      cursor: pointer;
+      background: var(--blue);
+      color: white;
+      border-color: transparent;
+    }
+    button.secondary {
+      background: var(--panel);
+      color: var(--text);
+      border-color: var(--border);
+    }
+    input, select, textarea {
+      width: 100%;
+      background: var(--panel);
+      color: var(--text);
+    }
+    .wrap { max-width: 1120px; margin: auto; padding: 20px; }
+    header {
+      background: linear-gradient(135deg, #104b84, #248bd0);
+      color: white;
+      padding: 34px 20px;
+    }
+    header .wrap { padding-top: 0; padding-bottom: 0; }
+    header h1 { margin: 0 0 8px; font-size: clamp(1.8rem, 5vw, 2.7rem); }
+    header p { max-width: 720px; margin: 0; color: #edf7ff; }
+    .topbar { display: flex; justify-content: space-between; gap: 12px; align-items: center; }
+    .toolbar { display: grid; grid-template-columns: 2fr 1fr; gap: 12px; margin: 20px 0; }
+    .layout { display: grid; grid-template-columns: 250px 1fr; gap: 20px; align-items: start; }
+    .panel, .entry, .topic-card {
+      background: var(--panel);
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      padding: 18px;
+    }
+    .panel { margin-bottom: 16px; }
+    .panel h2, .panel h3 { margin-top: 0; }
+    .category-list { display: grid; gap: 8px; }
+    .category-list button { text-align: left; }
+    .category-list button.active { outline: 2px solid var(--blue); }
+    .results { display: grid; gap: 12px; }
+    .topic-card { cursor: pointer; }
+    .topic-card:hover { border-color: var(--blue); }
+    .topic-card h3 { margin: 5px 0; }
+    .muted { color: var(--muted); }
+    .tag {
+      display: inline-block; border-radius: 999px;
+      background: var(--blue-light); color: var(--text);
+      padding: 3px 9px; font-size: .8rem;
+    }
+    .notice { background: var(--warning); border-radius: 12px; padding: 14px; margin: 18px 0; }
+    .detail-title { margin-top: 0; }
+    .source-list li, .related-list li { margin: 8px 0; }
+    .hidden { display: none !important; }
+    .question-box { display: grid; gap: 10px; }
+    .result-count { margin: 0 0 10px; }
+    footer { text-align: center; color: var(--muted); padding: 28px 12px; }
+    @media (max-width: 720px) {
+      .layout { grid-template-columns: 1fr; }
+      .toolbar { grid-template-columns: 1fr; }
+      .wrap { padding: 14px; }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="wrap">
+      <div class="topbar">
+        <span>📚 Independent learning project</span>
+        <button id="themeButton" class="secondary" type="button">Dark mode</button>
+      </div>
+      <h1>Sri Vaishnava Knowledge Base</h1>
+      <p>A growing, source-aware collection of topics, texts, teachers, sacred places, and traditional concepts.</p>
+    </div>
+  </header>
+
+  <main class="wrap">
+    <div class="notice">
+      <strong>Research note:</strong> Starter entries are drafts, not authoritative religious guidance.
+      Please check traditional details with reliable texts and a knowledgeable Sri Vaishnava teacher.
+      This website's question lab retrieves matching entries; it does not generate verified answers.
+    </div>
+
+    <section class="panel">
+      <h2>Ask the knowledge collection</h2>
+      <p class="muted">Enter a question or a few keywords to find relevant entries and their sources.</p>
+      <div class="question-box">
+        <textarea id="questionInput" rows="3" placeholder="Example: What is the Divya Prabandham?"></textarea>
+        <button id="askButton" type="button">Find relevant knowledge</button>
+      </div>
+      <div id="questionResults" class="results" style="margin-top:14px"></div>
+    </section>
+
+    <section class="toolbar">
+      <input id="searchInput" type="search" placeholder="Search topics, names, concepts…">
+      <select id="statusFilter" aria-label="Filter by review status">
+        <option value="all">All review statuses</option>
+        <option value="needs_review">Needs review</option>
+        <option value="reviewed">Reviewed</option>
+      </select>
+    </section>
+
+    <div class="layout">
+      <aside>
+        <section class="panel">
+          <h2>Categories</h2>
+          <div id="categoryList" class="category-list">
+            <p class="muted">Loading categories…</p>
+          </div>
+        </section>
+        <section class="panel">
+          <h3>About this collection</h3>
+          <p class="muted">Every topic should have traceable sources, transparent review status, and corrections when needed.</p>
+          <p><span class="tag">Needs review</span> means the entry has not yet been approved.</p>
+        </section>
+      </aside>
+
+      <section>
+        <div id="detailView" class="entry hidden"></div>
+        <div id="listView">
+          <p id="resultCount" class="muted result-count"></p>
+          <div id="entriesList" class="results">
+            <p class="muted">Loading knowledge entries…</p>
+          </div>
+        </div>
+      </section>
+    </div>
+  </main>
+
+  <footer>
+    Sri Vaishnava Knowledge Base · Independent project · Verify important claims with trusted sources.
+  </footer>
+
+  <script>
+    const state = {
+      entries: [],
+      categories: [],
+      category: "all",
+      selectedId: null
+    };
+
+    const $ = id => document.getElementById(id);
+
+    function escapeHtml(value = "") {
+      return String(value).replace(/[&<>"']/g, ch => ({
+        "&": "&amp;", "<": "&lt;", ">": "&gt;",
+        '"': "&quot;", "'": "&#39;"
+      })[ch]);
+    }
+
+    function categoryName(id) {
+      return state.categories.find(c => c.id === id)?.name || id;
+    }
+
+    function entryText(entry) {
+      return [
+        entry.title, entry.summary, entry.content,
+        ...(entry.aliases || [])
+      ].join(" ").toLowerCase();
+    }
+
+    function renderCategories() {
+      const all = [{ id: "all", name: "All topics" }, ...state.categories];
+      $("categoryList").innerHTML = all.map(c => `
+        <button type="button"
+          class="secondary ${state.category === c.id ? "active" : ""}"
+          data-category="${escapeHtml(c.id)}">
+          ${escapeHtml(c.name)}
+        </button>
+      `).join("");
+
+      $("categoryList").querySelectorAll("button").forEach(button => {
+        button.addEventListener("click", () => {
+          state.category = button.dataset.category;
+          state.selectedId = null;
+          $("detailView").classList.add("hidden");
+          $("listView").classList.remove("hidden");
+          renderCategories();
+          renderEntries();
+        });
+      });
+    }
+
+    function cardHtml(entry) {
+      return `
+        <article class="topic-card" tabindex="0" role="button"
+          data-entry="${escapeHtml(entry.id)}"
+          aria-label="Open ${escapeHtml(entry.title)}">
+          <span class="tag">${escapeHtml(categoryName(entry.category))}</span>
+          <h3>${escapeHtml(entry.title)}</h3>
+          <p>${escapeHtml(entry.summary)}</p>
+          <span class="muted">Status: ${escapeHtml(entry.review_status || "needs_review")}</span>
+        </article>
+      `;
+    }
+
+    function renderEntries() {
+      const query = $("searchInput").value.trim().toLowerCase();
+      const status = $("statusFilter").value;
+
+      const filtered = state.entries.filter(entry => {
+        const matchesCategory = state.category === "all" || entry.category === state.category;
+        const matchesQuery = !query || entryText(entry).includes(query);
+        const matchesStatus = status === "all" || entry.review_status === status;
+        return matchesCategory && matchesQuery && matchesStatus;
+      });
+
+      $("resultCount").textContent = `${filtered.length} topic${filtered.length === 1 ? "" : "s"} found`;
+
+      $("entriesList").innerHTML = filtered.length
+        ? filtered.map(cardHtml).join("")
+        : "<p class='muted'>No matching topics. Try another word or category.</p>";
+
+      $("entriesList").querySelectorAll("[data-entry]").forEach(card => {
+        const open = () => showEntry(card.dataset.entry);
+        card.addEventListener("click", open);
+        card.addEventListener("keydown", event => {
+          if (event.key === "Enter" || event.key === " ") {
+            event.preventDefault();
+            open();
+          }
+        });
+      });
+    }
+
+    function showEntry(id) {
+      const entry = state.entries.find(item => item.id === id);
+      if (!entry) return;
+      state.selectedId = id;
+
+      const sources = (entry.sources || []).length
+        ? `<ul class="source-list">${entry.sources.map(source => `
+            <li><a href="${escapeHtml(source.url)}" target="_blank" rel="noopener noreferrer">
+              ${escapeHtml(source.title)}
+            </a></li>`).join("")}</ul>`
+        : "<p>No sources have been added yet. This entry needs source research before approval.</p>";
+
+      const related = (entry.related || [])
+        .map(relatedId => state.entries.find(item => item.id === relatedId))
+        .filter(Boolean);
+
+      $("detailView").innerHTML = `
+        <button class="secondary" id="backButton" type="button">← All topics</button>
+        <p style="margin-top:16px"><span class="tag">${escapeHtml(categoryName(entry.category))}</span>
+        <span class="tag">${escapeHtml(entry.review_status || "needs_review")}</span></p>
+        <h2 class="detail-title">${escapeHtml(entry.title)}</h2>
+        <p>${escapeHtml(entry.summary)}</p>
+        <p>${escapeHtml(entry.content)}</p>
+        <h3>Sources</h3>
+        ${sources}
+        <h3>Review note</h3>
+        <p>${escapeHtml(entry.review_note || "No review note added.")}</p>
+        <h3>Related topics</h3>
+        ${related.length
+          ? `<ul class="related-list">${related.map(item => `
+              <li><button class="secondary" data-related="${escapeHtml(item.id)}" type="button">
+                ${escapeHtml(item.title)}
+              </button></li>`).join("")}</ul>`
+          : "<p class='muted'>No related topics listed.</p>"}
+      `;
+
+      $("detailView").classList.remove("hidden");
+      $("listView").classList.add("hidden");
+      $("backButton").addEventListener("click", () => {
+        $("detailView").classList.add("hidden");
+        $("listView").classList.remove("hidden");
+        state.selectedId = null;
+      });
+      $("detailView").querySelectorAll("[data-related]").forEach(button => {
+        button.addEventListener("click", () => showEntry(button.dataset.related));
+      });
+    }
+
+    function tokenize(text) {
+      return text.toLowerCase().match(/[a-z0-9]+/g) || [];
+    }
+
+    function findRelevant(question) {
+      const words = [...new Set(tokenize(question).filter(word => word.length > 2))];
+      if (!words.length) return [];
+
+      return state.entries.map(entry => {
+        const titleWords = tokenize(entry.title + " " + (entry.aliases || []).join(" "));
+        const allWords = tokenize(entryText(entry));
+        let score = 0;
+
+        for (const word of words) {
+          if (titleWords.includes(word)) score += 4;
+          else if (allWords.includes(word)) score += 1;
+        }
+        return { entry, score };
+      })
+      .filter(result => result.score > 0)
+      .sort((a, b) => b.score - a.score)
+      .slice(0, 5);
+    }
+
+    $("askButton").addEventListener("click", () => {
+      const question = $("questionInput").value.trim();
+      const output = $("questionResults");
+
+      if (!question) {
+        output.innerHTML = "<p>Please enter a question or a few keywords.</p>";
+        return;
+      }
+
+      const results = findRelevant(question);
+
+      if (!results.length) {
+        output.innerHTML = `
+          <p>No matching entries were found.</p>
+          <p class="muted">This is a simple keyword search. Try a person's name, a text title, or a key term.</p>`;
+        return;
+      }
+
+      output.innerHTML = `
+        <p class="muted">Possible matches, ranked by keyword overlap. These are not AI-generated answers.</p>
+        ${results.map(({ entry, score }) => `
+          <article class="topic-card">
+            <span class="tag">${escapeHtml(categoryName(entry.category))}</span>
+            <h3>${escapeHtml(entry.title)}</h3>
+            <p>${escapeHtml(entry.summary)}</p>
+            <p class="muted">Review status: ${escapeHtml(entry.review_status || "needs_review")}</p>
+            <button type="button" data-open-result="${escapeHtml(entry.id)}">Read entry and sources</button>
+          </article>`).join("")}
+      `;
+
+      output.querySelectorAll("[data-open-result]").forEach(button => {
+        button.addEventListener("click", () => {
+          showEntry(button.dataset.openResult);
+          window.scrollTo({ top: 0, behavior: "smooth" });
+        });
+      });
+    });
+
+    $("searchInput").addEventListener("input", renderEntries);
+    $("statusFilter").addEventListener("change", renderEntries);
+
+    $("themeButton").addEventListener("click", () => {
+      document.body.classList.toggle("dark");
+      $("themeButton").textContent =
+        document.body.classList.contains("dark") ? "Light mode" : "Dark mode";
+    });
+
+    async function start() {
+      try {
+        const [entriesResponse, categoriesResponse] = await Promise.all([
+          fetch("./data/entries.json"),
+          fetch("./data/categories.json")
+        ]);
+
+        if (!entriesResponse.ok || !categoriesResponse.ok) {
+          throw new Error("Could not load the knowledge files.");
+        }
+
+        state.entries = await entriesResponse.json();
+        state.categories = await categoriesResponse.json();
+
+        renderCategories();
+        renderEntries();
+      } catch (error) {
+        $("entriesList").innerHTML = `
+          <p>Could not load the knowledge files. Please open this website through a static web host
+          or local web server, and check that both JSON files are in the data folder.</p>`;
+        $("categoryList").innerHTML = "<p>Categories could not be loaded.</p>";
+        $("resultCount").textContent = "";
+      }
+    }
+
+    start();
+  </script>
+</body>
+</html>
